@@ -11,8 +11,11 @@ def garmaev_glavinskaya_tumene(matr):
     ...
 
 
-
 def Marbaev_Hagoev(A):
+    ...
+
+
+def lavrentev_buldaev(matr):
     ...
 
 
