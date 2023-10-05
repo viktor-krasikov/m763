@@ -19,4 +19,8 @@ def lavrentev_buldaev(matr):
     ...
 
 
+def dashieva_Ykehev_mansheev(matr):
+    ...
+
+
 print(matr)
