@@ -11,4 +11,9 @@ def garmaev_glavinskaya_tumene(matr):
     ...
 
 
+
+def Marbaev_Hagoev(A):
+    ...
+
+
 print(matr)
