@@ -60,7 +60,38 @@ def lavrentev_buldaev(matr):
 
 
 def dashieva_Ykehev_mansheev(matr):
+<<<<<<< Updated upstream
     ...
+=======
+    maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
+
+    for i, row in enumerate(matr):
+        for j, elem in enumerate(row):
+            if elem > maxElem:
+                maxElem = elem
+                xMaxElem = i
+                yMaxElem = j
+
+    leftElem = matr[xMaxElem][yMaxElem - 1]
+
+    if maxElem == matr[xMaxElem][0] or leftElem == -1:
+        for i, row in enumerate(matr):
+            for j, elem in enumerate(row):
+                if elem > 0:
+                    matr[i][j] = 0
+
+    elif leftElem == 0:
+        for i, row in enumerate(matr):
+            for j, elem in enumerate(row):
+                if elem > 0:
+                    matr[i][j] -= 1
+        matr[xMaxElem][yMaxElem - 1] = maxElem
+
+    elif leftElem == -2:
+        matr[xMaxElem][yMaxElem - 1] = maxElem + 1
+
+    return matr
+>>>>>>> Stashed changes
 
 
 print(matr)
