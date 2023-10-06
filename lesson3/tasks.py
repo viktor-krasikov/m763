@@ -60,9 +60,6 @@ def lavrentev_buldaev(matr):
 
 
 def dashieva_Ykehev_mansheev(matr):
-<<<<<<< Updated upstream
-    ...
-=======
     maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
 
     for i, row in enumerate(matr):
@@ -91,7 +88,6 @@ def dashieva_Ykehev_mansheev(matr):
         matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
     return matr
->>>>>>> Stashed changes
 
 
 print(matr)
