@@ -67,7 +67,7 @@ class CheckMatrixTestCase(unittest.TestCase):
         a = [[1, 1, -1],
              [1, 20, 21],
              [-1, 1, 1]]
-        res = tasks.lavrentev_buldaev2(a)
+        res = tasks.lavrentev(a)
         expected = False
         self.assertEqual(expected, res)
 
@@ -75,7 +75,7 @@ class CheckMatrixTestCase(unittest.TestCase):
         a = [[1, 1, -1],
              [1, 20, 18],
              [-1, 1, 1]]
-        res = tasks.lavrentev_buldaev2(a)
+        res = tasks.lavrentev(a)
         expected = False
         self.assertEqual(expected, res)
 
@@ -83,7 +83,7 @@ class CheckMatrixTestCase(unittest.TestCase):
         a = [[1, 1, -1],
              [1, 20, 19],
              [-1, 1, 1]]
-        res = tasks.lavrentev_buldaev2(a)
+        res = tasks.lavrentev(a)
         expected = True
         self.assertEqual(expected, res)
 

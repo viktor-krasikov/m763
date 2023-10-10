@@ -191,7 +191,7 @@ def dashieva(matr):
 print(matr)
 
 
-def lavrentev_buldaev2(matr):
+def lavrentev(matr):
     import numpy as np
     matr = np.array(matr)
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
