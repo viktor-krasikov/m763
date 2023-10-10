@@ -113,9 +113,7 @@ def lavrentev_buldaev(matr):
     elif matr[i][j + 1] == -1 or matr[i][j + 1] > 1:
         matr[matr > 0] = 0
     elif (matr[i][j + 1]) == 0:
-        temp = matr[i][j]
-        matr[i][j] = matr[i][j + 1]
-        matr[i][j + 1] = temp
+        matr[i][j + 1] = matr[i][j]
         matr[matr > 0] -= 1
         matr[i][j + 1] += 1
     elif (matr[i][j + 1]) == -2:
