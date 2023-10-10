@@ -153,6 +153,45 @@ class MyTestCase(unittest.TestCase):
                     [4, 23, 18]]
         self.assertEqual(expected, a)
 
+    def test_pos_4_0_matrix1(self):
+        a = [[-1, -2, 0, -12, -5],
+             [-4, -6, 48, -16, -5],
+             [-5, 0, -2, 0, -4],
+             [-15, 0, -14, 0, -3]]
+        result = tasks.garmaev_glavinskaya_tumene2(a)
+        expected = [[-1, -2, 0, -12, -5],
+                    [-4, -6, 48, -16, -5],
+                    [-5, 0, -2, 0, -4],
+                    [-15, 0, -14, 0, -3]]
+        self.assertEqual(expected, a)
+        self.assertFalse(result)
+
+    def test_pos_4_0_matrix2(self):
+        a = [[-1, -2, 0, -12, -5],
+             [0, 0, 0, 0, -5],
+             [-5, 0, -2, 0, -4],
+             [-15, 0, -14, 0, -3]]
+        result = tasks.garmaev_glavinskaya_tumene2(a)
+        expected = [[-1, -2, 0, -12, -5],
+                    [1, 2, 3, 0, -5],
+                    [-5, 0, -2, 0, -4],
+                    [-15, 0, -14, 0, -3]]
+        self.assertEqual(expected, a)
+        self.assertTrue(result)
+
+    def test_pos_4_0_matrix3(self):
+        a = [[-1, -2, 0, 0, -5],
+             [0, -6, 0, 0, 0],
+             [-5, 0, 0, 0, -4],
+             [-15, 0, -14, 0, -3]]
+        result = tasks.garmaev_glavinskaya_tumene2(a)
+        expected = [[-1, -2, 0, 0, -5],
+                    [0, -6, 0, 0, 0],
+                    [-5, 0, 0, 0, -4],
+                    [-15, 0, -14, 0, -3]]
+        self.assertEqual(expected, a)
+        self.assertFalse(result)
+
 
 if __name__ == '__main__':
     unittest.main()

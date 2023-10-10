@@ -17,20 +17,39 @@ def garmaev_glavinskaya_tumene(matr):
                 maximum = matr[i][j]
                 x = i
                 y = j
-    if x == stroka-1 or (x+1 < stroka and (matr[x+1][y] == -1 or matr[x+1][y] > 1)):
+    if x == stroka - 1 or (x + 1 < stroka and (matr[x + 1][y] == -1 or matr[x + 1][y] > 1)):
         for i in range(stroka):
             for j in range(stolb):
                 if matr[i][j] > 0:
                     matr[i][j] = 0
-    elif x+1 < stroka and matr[x+1][y] == 0:
+    elif x + 1 < stroka and matr[x + 1][y] == 0:
         for i in range(stroka):
             for j in range(stolb):
                 if matr[i][j] > 0:
                     matr[i][j] = matr[i][j] - 1
-        matr[x+1][y] = maximum
-    elif x+1 < stroka and matr[x+1][y] == -2:
-        matr[x+1][y] = maximum + 1
+        matr[x + 1][y] = maximum
+    elif x + 1 < stroka and matr[x + 1][y] == -2:
+        matr[x + 1][y] = maximum + 1
 
+
+def garmaev_glavinskaya_tumene2(matr):
+    positive = False
+    stroka = len(matr)
+    stolb = len(matr[0])
+    for i in range(stroka):
+        for j in range(stolb):
+            if matr[i][j] > 0:
+                positive = True
+                return False
+    if positive == False:
+        for i in range(stroka):
+            for j in range(stolb - 3):
+                if (matr[i][j] == 0 and matr[i][j + 1] == 0 and matr[i][j + 2] == 0 and matr[i][j + 3] == 0):
+                    matr[i][j] = 1
+                    matr[i][j + 1] = 2
+                    matr[i][j + 2] = 3
+                    return True
+    return False
 
 
 def Marbaev_Hagoev_Panteleev(A):
