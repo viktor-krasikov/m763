@@ -35,8 +35,37 @@ def garmaev_glavinskaya_tumene(matr):
         matr[x+1][y] = maximum + 1
 
 
-def Marbaev_Hagoev(A):
-    ...
+
+def Marbaev_Hagoev_Panteleev(A):
+    max_elem = A[0][0]
+
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            if (max_elem < A[i][j]):
+                max_elem = A[i][j]
+                i1 = i
+                j1 = j
+
+    if i1 == 0:
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                if A[i][j] > 0: A[i][j] = 0
+
+    elif A[i1 - 1][j1] == -1:
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                if A[i][j] > 0: A[i][j] = 0
+
+    elif A[i1 - 1][j1] == 0:
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                if A[i][j] > 0: A[i][j] = 0
+                if i == i1 - 1 and j == j1: A[i][j] = max_elem
+
+    else:
+        if A[i1 - 1][j1] == -2:
+            A[i1 - 1][j1] = max_elem + 1
+
 
 
 def lavrentev_buldaev(matr):
