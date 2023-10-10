@@ -8,8 +8,8 @@ class MyTestCase(unittest.TestCase):
              [4, 6, 8],
              [-5, 0, -1]]
         tasks.Marbaev_Hagoev_Panteleev(a)
-        expected = [[0, 0, 8],
-                    [0, 0, 0],
+        expected = [[0, 1, 8],
+                    [3, 5, 7],
                     [-5, 0, -1]]
         self.assertEqual(expected, a)
 
@@ -54,8 +54,8 @@ class MyTestCase(unittest.TestCase):
              [4, 6],
              [-5, 0]]
         tasks.Marbaev_Hagoev_Panteleev(a)
-        expected = [[1, 2],
-                    [4, 6],
+        expected = [[0, 0],
+                    [0, 0],
                     [-5, 0]]
         self.assertEqual(expected, a)
 

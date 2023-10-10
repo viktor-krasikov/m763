@@ -43,7 +43,7 @@ def Marbaev_Hagoev_Panteleev(A):
 
     for i in range(len(A)):
         for j in range(len(A[i])):
-            if (max_elem < A[i][j]):
+            if max_elem < A[i][j]:
                 max_elem = A[i][j]
                 i1 = i
                 j1 = j
@@ -51,18 +51,22 @@ def Marbaev_Hagoev_Panteleev(A):
     if i1 == 0:
         for i in range(len(A)):
             for j in range(len(A[i])):
-                if A[i][j] > 0: A[i][j] = 0
+                if A[i][j] > 0:
+                    A[i][j] = 0
 
-    elif A[i1 - 1][j1] == -1:
+    elif A[i1 - 1][j1] == -1 or A[i1 - 1][j1] > 1:
         for i in range(len(A)):
             for j in range(len(A[i])):
-                if A[i][j] > 0: A[i][j] = 0
+                if A[i][j] > 0:
+                    A[i][j] = 0
 
     elif A[i1 - 1][j1] == 0:
         for i in range(len(A)):
             for j in range(len(A[i])):
-                if A[i][j] > 0: A[i][j] = 0
-                if i == i1 - 1 and j == j1: A[i][j] = max_elem
+                if A[i][j] > 0:
+                    A[i][j] -= 1
+                if i == i1 - 1 and j == j1:
+                    A[i][j] = max_elem
 
     else:
         if A[i1 - 1][j1] == -2:
