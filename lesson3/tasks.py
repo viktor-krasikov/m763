@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 matr = [
     [1, 2, 3, 5],
