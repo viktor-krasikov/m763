@@ -63,6 +63,36 @@ class MyTestCase(unittest.TestCase):
                     [0, -1, 0]]
         self.assertEqual(expected, a)
 
+    def test_down_more1_matrix1(self):
+        a = [[1, 2, 0],
+             [4, 6, 18],
+             [-5, 0, 7]]
+        tasks.garmaev_glavinskaya_tumene(a)
+        expected = [[0, 0, 0],
+                    [0, 0, 0],
+                    [-5, 0, 0]]
+        self.assertEqual(expected, a)
+
+    def test_down_more1_matrix2(self):
+        a = [[1, 2, 0, 12],
+             [4, 6, 48, -16],
+             [-5, 0, 2, 4],
+             [15, 0, 14, 0]]
+        tasks.garmaev_glavinskaya_tumene(a)
+        expected = [[0, 0, 0, 0],
+                    [0, 0, 0, -16],
+                    [-5, 0, 0, 0],
+                    [0, 0, 0, 0]]
+        self.assertEqual(expected, a)
+
+    def test_down_more1_matrix3(self):
+        a = [[1, 22, 0],
+             [-4, 5, 18]]
+        tasks.garmaev_glavinskaya_tumene(a)
+        expected = [[0, 0, 0],
+                    [-4, 0, 0]]
+        self.assertEqual(expected, a)
+
     def test_down_zero_matrix1(self):
         a = [[1, 2, 0],
              [4, 6, 8],
