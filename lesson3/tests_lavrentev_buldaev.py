@@ -3,7 +3,7 @@ import tasks
 
 
 class CheckMatrixTestCase(unittest.TestCase):
-    def test_1(self):
+    def test_1t(self):
         a = [[1, -12, 0],
              [4, 6, 20],
              [-1, 10, -1]]
@@ -13,7 +13,17 @@ class CheckMatrixTestCase(unittest.TestCase):
                     [-1, 0, -1]]
         self.assertEqual(expected, res)
 
-    def test_2(self):
+    def test_1f(self):
+        a = [[1, -12, 0],
+             [4, 6, 1],
+             [-1, 10, 1]]
+        res = tasks.lavrentev_buldaev(a)
+        expected = [[1, -12, 0],
+                    [4, 6, 1],
+                    [-1, 10, 1]]
+        self.assertEqual(expected, res)
+
+    def test_2t(self):
         a = [[1, 1, -1],
              [1, 20, -1],
              [-1, 1, 1]]
@@ -21,6 +31,16 @@ class CheckMatrixTestCase(unittest.TestCase):
         expected = [[0, 0, -1],
                     [0, 0, -1],
                     [-1, 0, 0]]
+        self.assertEqual(expected, res)
+
+    def test_2f(self):
+        a = [[1, 1, -1],
+             [1, 20, 1],
+             [-1, 1, 1]]
+        res = tasks.lavrentev_buldaev(a)
+        expected = [[1, 1, -1],
+                    [1, 20, 1],
+                    [-1, 1, 1]]
         self.assertEqual(expected, res)
 
     def test_3(self):
@@ -45,10 +65,10 @@ class CheckMatrixTestCase(unittest.TestCase):
 
     def test_2_1(self):
         a = [[1, 1, -1],
-             [1, 20, 19],
+             [1, 20, 21],
              [-1, 1, 1]]
         res = tasks.lavrentev_buldaev2(a)
-        expected = True
+        expected = False
         self.assertEqual(expected, res)
 
     def test_2_2(self):
@@ -57,6 +77,14 @@ class CheckMatrixTestCase(unittest.TestCase):
              [-1, 1, 1]]
         res = tasks.lavrentev_buldaev2(a)
         expected = False
+        self.assertEqual(expected, res)
+
+    def test_2_3(self):
+        a = [[1, 1, -1],
+             [1, 20, 19],
+             [-1, 1, 1]]
+        res = tasks.lavrentev_buldaev2(a)
+        expected = True
         self.assertEqual(expected, res)
 
 

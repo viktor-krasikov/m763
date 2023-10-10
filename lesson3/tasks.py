@@ -189,3 +189,15 @@ def dashieva(matr):
     return matr
 
 print(matr)
+
+
+def lavrentev_buldaev2(matr):
+    import numpy as np
+    matr = np.array(matr)
+    (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
+    if matr[i][j] in matr[:, -1]:
+        return False
+    elif matr[i][j + 1] == matr[i][j] - 1:
+        return True
+    else:
+        return False
