@@ -7,6 +7,7 @@ matr = [
     [10, 2, 0, 5],
     [1, 2, 3, 5],
 ]
+matr = np.zeros((5,4))
 
 
 def garmaev_glavinskaya_tumene(matr):
