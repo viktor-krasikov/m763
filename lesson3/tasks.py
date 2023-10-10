@@ -115,10 +115,10 @@ def lavrentev_buldaev(matr):
     # TODO переименовать функцию в step_right(matr)
     # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     # TODO удалить этот import, так как в самом верху он уже есть
-    import numpy as np
+    #import numpy as np
     # TODO преобразование из списка списков в матрицу numpy уже не нужно, так как мы изначально
     #  создаём матрицу numpy при помощи функции zeros, поэтому строку matr = np.array(matr) можно удалить
-    matr = np.array(matr)
+    #matr = np.array(matr)
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
     if matr[i][j] in matr[:, -1]:
         matr[matr > 0] = 0
