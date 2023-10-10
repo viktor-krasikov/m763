@@ -175,11 +175,24 @@ class CheckMatrixTestCase(unittest.TestCase):
         a = [[1, 4, 0, 12],
              [-5, 8, 9, 0],
              [-6, 7, 0, 19]]
+
+        count = 0
+        for row in a:
+            for elem in row:
+                if elem == 0:
+                    count += 1
+
+        count -= 1
+
         res = tasks.dashieva(a)
-        expected = [[1, 4, -2, 12],
-                    [-5, 8, 9, 0],
-                    [-6, 7, 0, 19]]
-        self.assertEqual(expected, res)
+
+        expectedCount = 0
+        for row in res:
+            for elem in row:
+                if elem == 0:
+                    expectedCount += 1
+
+        self.assertEqual(expectedCount, count)
 
     def test_20(self):
         a = [[1, 4, 0, 12],
@@ -187,13 +200,24 @@ class CheckMatrixTestCase(unittest.TestCase):
              [-6, 4, 25, 19],
              [-7, 7, 0, 4],
              [-10, 7, 0, 14]]
+
+        count = 0
+        for row in a:
+            for elem in row:
+                if elem == 0:
+                    count += 1
+
+        count -= 1
+
         res = tasks.dashieva(a)
-        expected = [[1, 4, -2, 12],
-                    [-5, 2, 30, 0],
-                    [-6, 4, 25, 19],
-                    [-7, 7, 0, 4],
-                    [-10, 7, 0, 14]]
-        self.assertEqual(expected, res)
+
+        expectedCount = 0
+        for row in res:
+            for elem in row:
+                if elem == 0:
+                    expectedCount += 1
+
+        self.assertEqual(expectedCount, count)
 
 
 if __name__ == '__main__':

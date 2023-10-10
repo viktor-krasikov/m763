@@ -1,3 +1,5 @@
+import random
+
 matr = [
     [1, 2, 3, 5],
     [1, 2, 3, -1],
@@ -170,17 +172,19 @@ def Nikolaeva_Mordvin(matr):
 
 def dashieva(matr):
     isMinusTwo = False
-    x, y = -1, -1
+    x, y = [], []
 
     for i, row in enumerate(matr):
         for j, elem in enumerate(row):
             if elem == -2:
                 isMinusTwo = True
-            if elem == 0 and x == -1:
-                x = i
-                y = j
-    if isMinusTwo == False and x != -1:
-        matr[x][y] = -2
+            if elem == 0:
+                x.append(i)
+                y.append(j)
+
+    if isMinusTwo == False and len(x) > 0:
+        rand = random.randint(0, len(x) - 1)
+        matr[x[rand]][y[rand]] = -2
 
     return matr
 
