@@ -100,7 +100,7 @@ def dashieva_Ykehev_mansheev(matr):
 
     leftElem = matr[xMaxElem][yMaxElem - 1]
 
-    if maxElem == matr[xMaxElem][0] or leftElem == -1:
+    if maxElem == matr[xMaxElem][0] or leftElem == -1 or leftElem > 1:
         for i, row in enumerate(matr):
             for j, elem in enumerate(row):
                 if elem > 0:

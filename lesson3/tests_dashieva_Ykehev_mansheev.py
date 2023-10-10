@@ -27,8 +27,8 @@ class CheckMatrixTestCase(unittest.TestCase):
         a = [[1, 2, 4, 29],
              [3, 4, 6, 1]]
         res = tasks.dashieva_Ykehev_mansheev(a)
-        expected = [[1, 2, 4, 29],
-                    [3, 4, 6, 1]]
+        expected = [[0, 0, 0, 0],
+                    [0, 0, 0, 0]]
         self.assertEqual(expected, res)
 
     def test_4(self):
@@ -119,6 +119,29 @@ class CheckMatrixTestCase(unittest.TestCase):
                     [-1, 24, 0, -1]]
         self.assertEqual(expected, res)
 
+    def test_13(self):
+        a = [[5, 24, 4, -29],
+             [-1, 24, 0, -1]]
+        res = tasks.dashieva_Ykehev_mansheev(a)
+        expected = [[0, 0, 0, -29],
+                    [-1, 0, 0, -1]]
+        self.assertEqual(expected, res)
+
+    def test_14(self):
+        a = [[-2, 7],
+             [0, 5],
+             [24, 25]]
+        res = tasks.dashieva_Ykehev_mansheev(a)
+        expected = [[-2, 0],
+                    [0, 0],
+                    [0, 0]]
+        self.assertEqual(expected, res)
+
+    def test_15(self):
+        a = [[0, -3, 1]]
+        res = tasks.dashieva_Ykehev_mansheev(a)
+        expected = [[0, -3, 1]]
+        self.assertEqual(expected, res)
 
 if __name__ == '__main__':
     unittest.main()
