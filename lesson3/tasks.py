@@ -151,6 +151,22 @@ def dashieva_Ykehev_mansheev(matr):
 
     return matr
 
+def Nikolaeva_Mordvin(matr):
+    max=matr[0][0]
+    xmax=0
+    ymax=0
+    for i in range(len(matr)):
+         for j in range(len(matr[i])):
+             if(max<=matr[i][j]):
+                 max=matr[i][j]
+                 xmax=i
+                 ymax=j
+    #print(xmax,ymax)
+    #print(matr[xmax+1][ymax])
+    if(matr[xmax+1][ymax]==max-1):
+        return True
+    else:
+        return False
 
 def dashieva(matr):
     isMinusTwo = False
