@@ -1,7 +1,7 @@
 matr = [
     [1, 2, 3, 5],
-    [1, 2, 3, -5],
-    [1, 20, 3, 5],
+    [1, 2, 3, -1],
+    [1, 20, 4, 22],
     [10, 2, 0, 5],
     [1, 2, 3, 5],
 ]
@@ -73,10 +73,9 @@ def lavrentev_buldaev(matr):
     import numpy as np
     matr = np.array(matr)
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
-    max_index = np.argmax(matr)
-    if (max_index + 1) % 4 == 0:
+    if matr[i][j] in matr[:, -1]:
         matr[matr > 0] = 0
-    elif (max_index + 1) == -1:
+    elif matr[i][j + 1] == -1 or matr[i][j + 1] > 1:
         matr[matr > 0] = 0
     elif (matr[i][j + 1]) == 0:
         temp = matr[i][j]
@@ -86,7 +85,7 @@ def lavrentev_buldaev(matr):
         matr[i][j + 1] += 1
     elif (matr[i][j + 1]) == -2:
         matr[i][j + 1] = matr[i][j] + 1
-    return matr
+    return matr.tolist()
 
 
 def dashieva_Ykehev_mansheev(matr):
