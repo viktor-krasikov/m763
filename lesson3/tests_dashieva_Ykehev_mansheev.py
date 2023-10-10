@@ -143,5 +143,58 @@ class CheckMatrixTestCase(unittest.TestCase):
         expected = [[0, -3, 1]]
         self.assertEqual(expected, res)
 
+    def test_16(self):
+        a = [[1, -12, 0],
+             [4, 6, -8],
+             [-1, 10, -1]]
+        res = tasks.dashieva(a)
+        expected = [[1, -12, -2],
+                    [4, 6, -8],
+                    [-1, 10, -1]]
+        self.assertEqual(expected, res)
+
+    def test_17(self):
+        a = [[4, 2, 2],
+             [-1, 2, -1],
+             [12, 3, -1]]
+        res = tasks.dashieva(a)
+        expected = [[4, 2, 2],
+                    [-1, 2, -1],
+                    [12, 3, -1]]
+        self.assertEqual(expected, res)
+
+    def test_18(self):
+        a = [[1, -2, 4, 29],
+             [3, 4, 1, 1]]
+        res = tasks.dashieva(a)
+        expected = [[1, -2, 4, 29],
+                    [3, 4, 1, 1]]
+        self.assertEqual(expected, res)
+
+    def test_19(self):
+        a = [[1, 4, 0, 12],
+             [-5, 8, 9, 0],
+             [-6, 7, 0, 19]]
+        res = tasks.dashieva(a)
+        expected = [[1, 4, -2, 12],
+                    [-5, 8, 9, 0],
+                    [-6, 7, 0, 19]]
+        self.assertEqual(expected, res)
+
+    def test_20(self):
+        a = [[1, 4, 0, 12],
+             [-5, 2, 30, 0],
+             [-6, 4, 25, 19],
+             [-7, 7, 0, 4],
+             [-10, 7, 0, 14]]
+        res = tasks.dashieva(a)
+        expected = [[1, 4, -2, 12],
+                    [-5, 2, 30, 0],
+                    [-6, 4, 25, 19],
+                    [-7, 7, 0, 4],
+                    [-10, 7, 0, 14]]
+        self.assertEqual(expected, res)
+
+
 if __name__ == '__main__':
     unittest.main()
