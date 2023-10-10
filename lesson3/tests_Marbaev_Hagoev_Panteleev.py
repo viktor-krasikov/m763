@@ -70,6 +70,74 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(expected, a)
 
 
+class MyTestCase2(unittest.TestCase):
+    def test_1(self):
+        a = [[1, 2, 7],
+             [4, 6, 8],
+             [-5, 0, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = True
+        self.assertEqual(expected, result)
+
+    def test_2(self):
+        a = [[1, 27, -1],
+             [4, 6, 8],
+             [-5, 0, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_3(self):
+        a = [[1, 2, -2],
+             [4, 6, 8],
+             [-5, 0, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_4(self):
+        a = [[1, 10, -1],
+             [4, 11, 8],
+             [-5, 0, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = True
+        self.assertEqual(expected, result)
+
+    def test_5(self):
+        a = [[1, 2, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_6(self):
+        a = [[1, 2],
+             [4, 6],
+             [-5, 0]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_7(self):
+        a = [[-1, -2],
+             [6, 6],
+             [-5, 0]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_8(self):
+        a = [[1, 2, 0],
+             [4, 6, 8],
+             [-5, 0, -1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
+
+    def test_9(self):
+        a = [[1]]
+        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        expected = False
+        self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':

@@ -34,14 +34,14 @@ def garmaev_glavinskaya_tumene(matr):
 
 
 def Marbaev_Hagoev_Panteleev(A):
-    max_elem = A[0][0]
+    i1 = j1 = 0
+    max_elem = A[i1][j1]
 
     for i in range(len(A)):
         for j in range(len(A[i])):
             if max_elem < A[i][j]:
                 max_elem = A[i][j]
-                i1 = i
-                j1 = j
+                i1, j1 = i, j
 
     if i1 == 0:
         for i in range(len(A)):
@@ -66,6 +66,20 @@ def Marbaev_Hagoev_Panteleev(A):
     else:
         if A[i1 - 1][j1] == -2:
             A[i1 - 1][j1] = max_elem + 1
+
+
+
+def Marbaev_Hagoev_Panteleev_2(A):
+    i1 = j1 = 0
+    max_elem = A[i1][j1]
+
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            if max_elem < A[i][j]:
+                max_elem = A[i][j]
+                i1, j1 = i, j
+
+    return i1 != 0 and A[i1 - 1][j1] == max_elem - 1
 
 
 
