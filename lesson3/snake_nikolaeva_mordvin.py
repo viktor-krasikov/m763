@@ -2,7 +2,7 @@ import time
 import tasks
 import numpy as np
 import pygame
-import matplotlib as pyplot
+from matplotlib import pyplot
 
 pygame.init()
 board = np.zeros((30, 40))
@@ -14,6 +14,7 @@ for _ in range(4):
 
 tasks.create_snake_if_need(board)
 tasks.create_food_if_need(board)
+
 pyplot.ion()
 fig, ax = pyplot.subplots()
 axim = pyplot.imshow(board)
@@ -31,8 +32,8 @@ def get_color(value):
 
 
 def draw_board():
-    axim.set_board(board)
-    fig.canvas.flush_event()
+    axim.set_data(board)
+    fig.canvas.flush_events()
     pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
     for i, row in enumerate(board):
         for j, elem in enumerate(row):
