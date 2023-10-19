@@ -37,7 +37,7 @@ game_over = False
 
 while not game_over:
     tasks.garmaev_glavinskaya_tumene2(board)
-    tasks.dashieva(board)
+    tasks.create_food_if_need(board)
     draw_board()
 
     # Обработка событий
@@ -58,7 +58,7 @@ while not game_over:
     if direction == 'D':
         tasks.garmaev_glavinskaya_tumene(board)
     if direction == 'L':
-        tasks.dashieva_Ykehev_mansheev(board)
+        tasks.step_left(board)
     if direction == 'U':
         tasks.Marbaev_Hagoev_Panteleev(board)
 

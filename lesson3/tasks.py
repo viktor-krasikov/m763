@@ -140,9 +140,8 @@ def lavrentev_buldaev(matr):
     return matr.tolist()
 
 
-def dashieva_Ykehev_mansheev(matr):
-    # TODO переименовать функцию в step_left(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def step_left(matr):
+    print("step_left Dashieva")
     maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
 
     for i, row in enumerate(matr):
@@ -170,8 +169,6 @@ def dashieva_Ykehev_mansheev(matr):
     elif leftElem == -2:
         matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
-    # TODO нет необходимости возвращать матрицу в качестве результата функции
-    return matr
 
 def Nikolaeva_Mordvin(matr):
     # TODO переименовать функцию в can_not_step_down(matr)
@@ -192,9 +189,8 @@ def Nikolaeva_Mordvin(matr):
     else:
         return False
 
-def dashieva(matr):
-    # TODO переименовать функцию в create_food_if_need(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def create_food_if_need(matr):
+    print("create_food_if_need Dashieva")
     isMinusTwo = False
     x, y = [], []
 
@@ -210,8 +206,6 @@ def dashieva(matr):
         rand = random.randint(0, len(x) - 1)
         matr[x[rand]][y[rand]] = -2
 
-    # TODO нет необходимости возвращать матрицу в качестве результата функции
-    return matr
 
 print(matr)
 
