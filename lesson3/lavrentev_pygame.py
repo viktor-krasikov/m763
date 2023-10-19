@@ -5,7 +5,7 @@ import time
 
 pygame.init()
 
-board = np.zeros((40, 30))
+board = np.zeros((30, 40))
 disp = pygame.display.set_mode((400, 300))
 # board[15][15] = 1
 # board[15][16] = 2
