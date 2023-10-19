@@ -12,7 +12,8 @@ matr = np.zeros((5,4))
 
 
 def garmaev_glavinskaya_tumene(matr):
-
+    # TODO переименовать функцию в step_down(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     maximum = 0
     stroka = len(matr)
     stolb = len(matr[0])
@@ -38,6 +39,8 @@ def garmaev_glavinskaya_tumene(matr):
 
 
 def garmaev_glavinskaya_tumene2(matr):
+    # TODO переименовать функцию в create_snake_if_need(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     positive = False
     stroka = len(matr)
     stolb = len(matr[0])
@@ -59,6 +62,8 @@ def garmaev_glavinskaya_tumene2(matr):
 
 
 def Marbaev_Hagoev_Panteleev(A):
+    # TODO переименовать функцию в step_up(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     i1 = j1 = 0
     max_elem = A[i1][j1]
 
@@ -95,6 +100,8 @@ def Marbaev_Hagoev_Panteleev(A):
 
 
 def Marbaev_Hagoev_Panteleev_2(A):
+    # TODO переименовать функцию в can_not_step_up(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     i1 = j1 = 0
     max_elem = A[i1][j1]
 
@@ -109,7 +116,12 @@ def Marbaev_Hagoev_Panteleev_2(A):
 
 
 def lavrentev_buldaev(matr):
+    # TODO переименовать функцию в step_right(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+    # TODO удалить этот import, так как в самом верху он уже есть
     import numpy as np
+    # TODO преобразование из списка списков в матрицу numpy уже не нужно, так как мы изначально
+    #  создаём матрицу numpy при помощи функции zeros, поэтому строку matr = np.array(matr) можно удалить
     matr = np.array(matr)
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
     if matr[i][j] in matr[:, -1]:
@@ -122,10 +134,15 @@ def lavrentev_buldaev(matr):
         matr[i][j + 1] += 1
     elif (matr[i][j + 1]) == -2:
         matr[i][j + 1] = matr[i][j] + 1
+    # TODO нет необходимости возвращать матрицу в качестве результата функции, потому что мы и так
+    #  работаем с исходной матрицей и изменяем её, и поэтому return matr.tolist() можно убрать
+    #  (и в тестах тоже надо убрать присваивания такие как  res = tasks.lavrentev_buldaev(a), иначе тесты работать не будут)
     return matr.tolist()
 
 
 def dashieva_Ykehev_mansheev(matr):
+    # TODO переименовать функцию в step_left(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
 
     for i, row in enumerate(matr):
@@ -153,9 +170,12 @@ def dashieva_Ykehev_mansheev(matr):
     elif leftElem == -2:
         matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
+    # TODO нет необходимости возвращать матрицу в качестве результата функции
     return matr
 
 def Nikolaeva_Mordvin(matr):
+    # TODO переименовать функцию в can_not_step_down(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     max=matr[0][0]
     xmax=0
     ymax=0
@@ -173,6 +193,8 @@ def Nikolaeva_Mordvin(matr):
         return False
 
 def dashieva(matr):
+    # TODO переименовать функцию в create_food_if_need(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     isMinusTwo = False
     x, y = [], []
 
@@ -188,13 +210,18 @@ def dashieva(matr):
         rand = random.randint(0, len(x) - 1)
         matr[x[rand]][y[rand]] = -2
 
+    # TODO нет необходимости возвращать матрицу в качестве результата функции
     return matr
 
 print(matr)
 
 
 def lavrentev(matr):
+    # TODO переименовать функцию в can_not_step_right(matr)
+    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     import numpy as np
+    # TODO преобразование из списка списков в матрицу numpy уже не нужно, так как мы изначально
+    #  создаём матрицу numpy при помощи функции zeros, поэтому строку matr = np.array(matr) можно удалить
     matr = np.array(matr)
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
     if matr[i][j] in matr[:, -1]:
