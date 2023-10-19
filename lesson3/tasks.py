@@ -167,8 +167,7 @@ def step_left(matr):
 
 
 def can_not_step_down(matr):
-    # TODO переименовать функцию в can_not_step_down(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+    print("can_not_step_down Mordvin Nikolaeva")
     max=matr[0][0]
     xmax=0
     ymax=0
