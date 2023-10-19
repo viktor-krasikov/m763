@@ -203,3 +203,16 @@ def can_not_step_right(matr):
         return True
     else:
         return False
+
+def can_not_step_left(A):
+    print("can_not_step_left(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
+    i1 = j1 = 0
+    max_elem = A[i1][j1]
+
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            if max_elem < A[i][j]:
+                max_elem = A[i][j]
+                i1, j1 = i, j
+
+    return i1 != 0 and A[i1][j1 - 1] == max_elem - 1

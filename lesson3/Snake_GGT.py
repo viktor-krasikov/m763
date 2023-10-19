@@ -37,7 +37,7 @@ while not game_over:
         if event.type == pygame.QUIT:
             game_over = True
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and not tasks.can_not_step_left(board):
                 direction = 'L'
             elif event.key == pygame.K_UP and not tasks.can_not_step_up(board):
                 direction = 'U'
