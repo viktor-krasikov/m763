@@ -4,12 +4,8 @@ import time
 import tasks
 
 pygame.init()
-
-board = np.zeros((30, 30))
-
-tasks.garmaev_glavinskaya_tumene2(board)
-
-disp = pygame.display.set_mode((300, 300))
+board = np.zeros((30, 40))
+disp = pygame.display.set_mode((400, 300))
 
 
 def get_color(value):
@@ -23,7 +19,7 @@ def get_color(value):
 
 
 def draw_board():
-    pygame.draw.rect(disp, (0, 0, 100), [0, 0, 300, 300])
+    pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
     for i, row in enumerate(board):
         for j, elem in enumerate(row):
             if elem != 0:
@@ -34,7 +30,8 @@ def draw_board():
 
 direction = 'R'
 game_over = False
-
+tasks.garmaev_glavinskaya_tumene2(board)
+tasks.create_food_if_need(board)
 while not game_over:
     tasks.garmaev_glavinskaya_tumene2(board)
     tasks.create_food_if_need(board)
