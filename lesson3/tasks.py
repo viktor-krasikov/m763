@@ -223,11 +223,8 @@ def create_vertical_wall(matr):
     randCol = random.randint(0, len(matr[0]) - 1)
     randRow = random.randint(0, len(matr) - 5)
 
-    for i, row in enumerate(matr):
-        for j, elem in enumerate(row):
-            if j == randCol and i == randRow:
-                for k in range(5):
-                    matr[i + k][j] = -1
+    for k in range(5):
+        matr[randRow + k][randCol] = -1
 
 
 def create_horizontal_wall(matr):
