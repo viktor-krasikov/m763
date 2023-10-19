@@ -4,7 +4,7 @@ import numpy as np
 matr = [
     [1, 2, 3, 5],
     [1, 2, 3, -1],
-    [1, 20, 4, 22],
+    [1, 20, 0, 22],
     [10, 2, 0, 5],
     [1, 2, 3, 5],
 ]
@@ -12,6 +12,7 @@ matr = np.zeros((5,4))
 
 
 def garmaev_glavinskaya_tumene(matr):
+
     maximum = 0
     stroka = len(matr)
     stolb = len(matr[0])
@@ -54,6 +55,7 @@ def garmaev_glavinskaya_tumene2(matr):
                     matr[i][j + 2] = 3
                     return True
     return False
+
 
 
 def Marbaev_Hagoev_Panteleev(A):
