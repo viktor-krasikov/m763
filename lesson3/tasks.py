@@ -219,19 +219,15 @@ def can_not_step_left(A):
 
 
 def create_vertical_wall(matr):
+    print("create_vertical_wall Dashieva")
     randCol = random.randint(0, len(matr[0]) - 1)
     randRow = random.randint(0, len(matr) - 5)
-    print(randCol)
-    print(randRow)
 
     for i, row in enumerate(matr):
         for j, elem in enumerate(row):
             if j == randCol and i == randRow:
-                matr[i][j] = -1
-                matr[i + 1][j] = -1
-                matr[i + 2][j] = -1
-                matr[i + 3][j] = -1
-                matr[i + 4][j] = -1
+                for k in range(5):
+                    matr[i + k][j] = -1
 
 
 def create_horizontal_wall(matr):
