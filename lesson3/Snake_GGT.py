@@ -30,7 +30,7 @@ def draw_board():
 game_over = False
 direction = 'R'
 tasks.create_snake_if_need(board)
-tasks.dashieva(board)
+tasks.create_food_if_need(board)
 while not game_over:
     draw_board()
     for event in pygame.event.get():
@@ -45,12 +45,15 @@ while not game_over:
                 direction = 'R'
             elif event.key == pygame.K_DOWN:
                 direction = 'D'
+            elif event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                quit()
     if direction == 'R':
         board = tasks.lavrentev_buldaev(board)
     elif direction == 'D':
         tasks.step_down(board)
     elif direction == 'L':
-        tasks.dashieva_Ykehev_mansheev(board)
+        tasks.step_left(board)
     elif direction == 'U':
         tasks.step_up(board)
 
