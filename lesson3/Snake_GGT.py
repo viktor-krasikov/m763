@@ -4,7 +4,7 @@ import numpy as np
 import pygame
 
 pygame.init()
-board = np.zeros((40, 30))
+board = np.zeros((30, 40))
 disp = pygame.display.set_mode((400, 300))
 
 
