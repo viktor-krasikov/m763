@@ -30,8 +30,6 @@ def draw_board():
 
 direction = 'R'
 game_over = False
-tasks.create_snake_if_need(board)
-tasks.create_food_if_need(board)
 while not game_over:
     tasks.create_snake_if_need(board)
     tasks.create_food_if_need(board)
@@ -41,17 +39,17 @@ while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
-        if event.type == pygame.KEYDOWN:  # Добавить проверку на то, можно ли поворачивать
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 direction = 'L'
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP and not tasks.can_not_step_up(board):
                 direction = 'U'
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and not tasks.can_not_step_down(board):
                 direction = 'D'
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and not tasks.can_not_step_right(board):
                 direction = 'R'
     if direction == 'R':
-        board = tasks.step_right(board)
+        tasks.step_right(board)
     if direction == 'D':
         tasks.step_down(board)
     if direction == 'L':
