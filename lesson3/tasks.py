@@ -11,9 +11,8 @@ matr = [
 matr = np.zeros((5,4))
 
 
-def garmaev_glavinskaya_tumene(matr):
-    # TODO переименовать функцию в step_down(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def step_down(matr):
+    print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
     maximum = 0
     stroka = len(matr)
     stolb = len(matr[0])
@@ -38,9 +37,8 @@ def garmaev_glavinskaya_tumene(matr):
         matr[x + 1][y] = maximum + 1
 
 
-def garmaev_glavinskaya_tumene2(matr):
-    # TODO переименовать функцию в create_snake_if_need(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def create_snake_if_need(matr):
+    print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
     positive = False
     stroka = len(matr)
     stolb = len(matr[0])

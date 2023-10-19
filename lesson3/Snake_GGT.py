@@ -29,7 +29,7 @@ def draw_board():
 
 game_over = False
 direction = 'R'
-tasks.garmaev_glavinskaya_tumene2(board)
+tasks.create_snake_if_need(board)
 tasks.dashieva(board)
 while not game_over:
     draw_board()
@@ -48,7 +48,7 @@ while not game_over:
     if direction == 'R':
         board = tasks.lavrentev_buldaev(board)
     elif direction == 'D':
-        tasks.garmaev_glavinskaya_tumene(board)
+        tasks.step_down(board)
     elif direction == 'L':
         tasks.dashieva_Ykehev_mansheev(board)
     elif direction == 'U':
