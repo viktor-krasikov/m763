@@ -52,7 +52,7 @@ while not game_over:
     elif direction == 'L':
         tasks.dashieva_Ykehev_mansheev(board)
     elif direction == 'U':
-        tasks.Marbaev_Hagoev_Panteleev(board)
+        tasks.step_up(board)
 
     time.sleep(0.1)
 pygame.quit()

@@ -57,7 +57,7 @@ while not game_over:
     if direction == 'L':
         tasks.dashieva_Ykehev_mansheev(board)
     if direction == 'U':
-        tasks.Marbaev_Hagoev_Panteleev(board)
+        tasks.step_up(board)
 
     draw_board()
     time.sleep(0.5)

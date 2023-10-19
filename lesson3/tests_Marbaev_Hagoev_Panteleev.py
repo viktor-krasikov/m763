@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
         a = [[1, 2, 0],
              [4, 6, 8],
              [-5, 0, -1]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[0, 1, 8],
                     [3, 5, 7],
                     [-5, 0, -1]]
@@ -17,7 +17,7 @@ class MyTestCase(unittest.TestCase):
         a = [[1, 2, -1],
              [4, 6, 8],
              [-5, 0, -1]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[0, 0, -1],
                     [0, 0, 0],
                     [-5, 0, -1]]
@@ -27,7 +27,7 @@ class MyTestCase(unittest.TestCase):
         a = [[1, 2, -2],
              [4, 6, 8],
              [-5, 0, -1]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[1, 2, 9],
                     [4, 6, 8],
                     [-5, 0, -1]]
@@ -37,7 +37,7 @@ class MyTestCase(unittest.TestCase):
         a = [[1, 10, -1],
              [4, 6, 8],
              [-5, 0, -1]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[0, 0, -1],
                     [0, 0, 0],
                     [-5, 0, -1]]
@@ -45,7 +45,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_5(self):
         a = [[1, 2, -1]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[0, 0, -1]]
         self.assertEqual(expected, a)
 
@@ -53,7 +53,7 @@ class MyTestCase(unittest.TestCase):
         a = [[1, 2],
              [4, 6],
              [-5, 0]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[0, 0],
                     [0, 0],
                     [-5, 0]]
@@ -63,7 +63,7 @@ class MyTestCase(unittest.TestCase):
         a = [[-1, -2],
              [6, 6],
              [-5, 0]]
-        tasks.Marbaev_Hagoev_Panteleev(a)
+        tasks.step_up(a)
         expected = [[-1, -2],
                     [0, 0],
                     [-5, 0]]
@@ -75,7 +75,7 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 2, 7],
              [4, 6, 8],
              [-5, 0, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = True
         self.assertEqual(expected, result)
 
@@ -83,7 +83,7 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 27, -1],
              [4, 6, 8],
              [-5, 0, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
@@ -91,7 +91,7 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 2, -2],
              [4, 6, 8],
              [-5, 0, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
@@ -99,13 +99,13 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 10, -1],
              [4, 11, 8],
              [-5, 0, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = True
         self.assertEqual(expected, result)
 
     def test_5(self):
         a = [[1, 2, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
@@ -113,7 +113,7 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 2],
              [4, 6],
              [-5, 0]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
@@ -121,7 +121,7 @@ class MyTestCase2(unittest.TestCase):
         a = [[-1, -2],
              [6, 6],
              [-5, 0]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
@@ -129,13 +129,13 @@ class MyTestCase2(unittest.TestCase):
         a = [[1, 2, 0],
              [4, 6, 8],
              [-5, 0, -1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 
     def test_9(self):
         a = [[1]]
-        result = tasks.Marbaev_Hagoev_Panteleev_2(a)
+        result = tasks.can_not_step_up(a)
         expected = False
         self.assertEqual(expected, result)
 

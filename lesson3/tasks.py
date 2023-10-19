@@ -61,9 +61,8 @@ def garmaev_glavinskaya_tumene2(matr):
 
 
 
-def Marbaev_Hagoev_Panteleev(A):
-    # TODO переименовать функцию в step_up(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def step_up(A):
+    print("Имя функции: step_up; Авторы: Марбаев, Пантелеев, Хагоев")
     i1 = j1 = 0
     max_elem = A[i1][j1]
 
@@ -99,9 +98,8 @@ def Marbaev_Hagoev_Panteleev(A):
 
 
 
-def Marbaev_Hagoev_Panteleev_2(A):
-    # TODO переименовать функцию в can_not_step_up(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
+def can_not_step_up(A):
+    print("Имя функции: can_not_step_up; Авторы: Марбаев, Пантелеев, Хагоев")
     i1 = j1 = 0
     max_elem = A[i1][j1]
 
