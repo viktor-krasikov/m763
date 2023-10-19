@@ -232,3 +232,11 @@ def create_vertical_wall(matr):
                 matr[i + 2][j] = -1
                 matr[i + 3][j] = -1
                 matr[i + 4][j] = -1
+
+
+def create_horizontal_wall(matr):
+    print("create_horizontal_wall_Lavr_Marb_Hag")
+    y = random.randint(0, len(matr) - 1)
+    x = random.randint(0, len(matr[0]) - 7)
+    for i in range(0, 7):
+        matr[y][x + i] = -1
