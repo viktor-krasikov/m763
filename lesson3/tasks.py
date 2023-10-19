@@ -166,7 +166,7 @@ def step_left(matr):
         matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
 
-def Nikolaeva_Mordvin(matr):
+def can_not_step_down(matr):
     # TODO переименовать функцию в can_not_step_down(matr)
     # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
     max=matr[0][0]
@@ -178,8 +178,6 @@ def Nikolaeva_Mordvin(matr):
                  max=matr[i][j]
                  xmax=i
                  ymax=j
-    #print(xmax,ymax)
-    #print(matr[xmax+1][ymax])
     if(matr[xmax+1][ymax]==max-1):
         return True
     else:
