@@ -111,14 +111,8 @@ def can_not_step_up(A):
 
 
 
-def lavrentev_buldaev(matr):
-    # TODO переименовать функцию в step_right(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
-    # TODO удалить этот import, так как в самом верху он уже есть
-    #import numpy as np
-    # TODO преобразование из списка списков в матрицу numpy уже не нужно, так как мы изначально
-    #  создаём матрицу numpy при помощи функции zeros, поэтому строку matr = np.array(matr) можно удалить
-    #matr = np.array(matr)
+def step_right(matr):
+    print("step_right Lavr_Buld")
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
     if matr[i][j] in matr[:, -1]:
         matr[matr > 0] = 0
@@ -130,10 +124,7 @@ def lavrentev_buldaev(matr):
         matr[i][j + 1] += 1
     elif (matr[i][j + 1]) == -2:
         matr[i][j + 1] = matr[i][j] + 1
-    # TODO нет необходимости возвращать матрицу в качестве результата функции, потому что мы и так
-    #  работаем с исходной матрицей и изменяем её, и поэтому return matr.tolist() можно убрать
-    #  (и в тестах тоже надо убрать присваивания такие как  res = tasks.lavrentev_buldaev(a), иначе тесты работать не будут)
-    return matr.tolist()
+    #return matr.tolist()
 
 
 def step_left(matr):
@@ -203,13 +194,8 @@ def create_food_if_need(matr):
 print(matr)
 
 
-def lavrentev(matr):
-    # TODO переименовать функцию в can_not_step_right(matr)
-    # TODO в начале выполнения функции вывести в консоль имя этой функции и фамилии авторов функции
-    import numpy as np
-    # TODO преобразование из списка списков в матрицу numpy уже не нужно, так как мы изначально
-    #  создаём матрицу numpy при помощи функции zeros, поэтому строку matr = np.array(matr) можно удалить
-    matr = np.array(matr)
+def can_not_step_right(matr):
+    print("can_not_step_right_Lavr")
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
     if matr[i][j] in matr[:, -1]:
         return False

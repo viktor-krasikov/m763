@@ -49,7 +49,7 @@ while not game_over:
                 pygame.quit()
                 quit()
     if direction == 'R':
-        board = tasks.lavrentev_buldaev(board)
+        board = tasks.step_right(board)
     elif direction == 'D':
         tasks.step_down(board)
     elif direction == 'L':

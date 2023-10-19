@@ -51,7 +51,7 @@ while not game_over:
             if event.key == pygame.K_RIGHT:
                 direction = 'R'
     if direction == 'R':
-        tasks.lavrentev_buldaev(board)
+        tasks.step_right(board)
     if direction == 'D':
         tasks.step_down(board)
     if direction == 'L':
