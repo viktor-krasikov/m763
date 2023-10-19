@@ -30,10 +30,10 @@ def draw_board():
 
 direction = 'R'
 game_over = False
-tasks.garmaev_glavinskaya_tumene2(board)
+tasks.create_snake_if_need(board)
 tasks.create_food_if_need(board)
 while not game_over:
-    tasks.garmaev_glavinskaya_tumene2(board)
+    tasks.create_snake_if_need(board)
     tasks.create_food_if_need(board)
     draw_board()
 
@@ -53,7 +53,7 @@ while not game_over:
     if direction == 'R':
         board = tasks.lavrentev_buldaev(board)
     if direction == 'D':
-        tasks.garmaev_glavinskaya_tumene(board)
+        tasks.step_down(board)
     if direction == 'L':
         tasks.step_left(board)
     if direction == 'U':
