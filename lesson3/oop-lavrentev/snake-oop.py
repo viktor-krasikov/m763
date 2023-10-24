@@ -1,13 +1,12 @@
-import tasks
-import numpy as np
+from tasks import SnakeData
 import pygame
 import time
 
 pygame.init()
 
-board = np.zeros((30, 40))
 disp = pygame.display.set_mode((400, 300))
-print(board.shape)
+
+sd = SnakeData(30, 40)
 
 
 def get_color(value):
@@ -21,7 +20,7 @@ def get_color(value):
 
 def draw_board():
     pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
-    for i, row in enumerate(board):
+    for i, row in enumerate(sd.matr):
         for j, elem in enumerate(row):
             if elem != 0:
                 pygame.draw.rect(disp, get_color(elem), [j * 10, i * 10, 10, 10])
@@ -32,15 +31,15 @@ direction = 'R'
 game_over = False
 
 for _ in range(4):
-    tasks.create_horizontal_wall(board)
-    tasks.create_vertical_wall(board)
+    sd.create_horizontal_wall()
+    sd.create_vertical_wall()
 
-tasks.create_snake_if_need(board)
-tasks.create_food_if_need(board)
+sd.create_snake_if_need()
+sd.create_food_if_need()
 
 while not game_over:
-    tasks.create_snake_if_need(board)
-    tasks.create_food_if_need(board)
+    sd.create_snake_if_need()
+    sd.create_food_if_need()
     draw_board()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -55,13 +54,13 @@ while not game_over:
             if event.key == pygame.K_RIGHT:
                 direction = 'R'
     if direction == 'R':
-        tasks.step_right(board)
+        sd.step_right()
     if direction == 'D':
-        tasks.step_down(board)
+        sd.step_down()
     if direction == 'L':
-        tasks.step_left(board)
+        sd.step_left()
     if direction == 'U':
-        tasks.step_up(board)
+        sd.step_up()
 
     draw_board()
     time.sleep(0.2)
