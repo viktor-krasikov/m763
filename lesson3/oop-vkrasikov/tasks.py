@@ -17,8 +17,8 @@ class SnakeData:
     def cols_count(self):
         return self.__cols_count
 
-    def get_elem(self, i, j):
-        return self.__board[i][j]
+    def __getitem__(self, indexes):
+        return self.__board[indexes[0]][indexes[1]]
 
     def step_down(self):
         matr = self.__board

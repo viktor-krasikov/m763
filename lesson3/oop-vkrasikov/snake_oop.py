@@ -33,9 +33,8 @@ def draw_board():
     disp.fill((0, 0, 100))
     for i in range(snake_data.rows_count):
         for j in range(snake_data.cols_count):
-            elem = snake_data.get_elem(i, j)
-            if elem != 0:
-                pygame.draw.rect(disp, get_color(elem),
+            if snake_data[(i, j)] != 0:
+                pygame.draw.rect(disp, get_color(snake_data[(i, j)]),
                                  [j * cell_size, i * cell_size, cell_size, cell_size])
 
     pygame.display.update()
