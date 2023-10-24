@@ -4,7 +4,7 @@ from tasks import SnakeData
 
 snake_data = SnakeData(30, 40)
 
-cell_size = 10
+cell_size = 15
 pygame.init()
 disp = pygame.display.set_mode(
     (snake_data.get_cols_count() * cell_size,
@@ -30,7 +30,7 @@ def get_color(value):
 
 
 def draw_board():
-    pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
+    disp.fill((0, 0, 100))
     for i in range(snake_data.get_rows_count()):
         for j in range(snake_data.get_cols_count()):
             elem = snake_data.get_elem(i, j)
