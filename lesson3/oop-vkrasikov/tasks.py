@@ -9,10 +9,12 @@ class SnakeData:
         self.__cols_count = cols_count
         self.__board = np.zeros((rows_count, cols_count))
 
-    def get_rows_count(self):
+    @property
+    def rows_count(self):
         return self.__rows_count
 
-    def get_cols_count(self):
+    @property
+    def cols_count(self):
         return self.__cols_count
 
     def get_elem(self, i, j):
