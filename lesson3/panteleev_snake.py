@@ -145,8 +145,9 @@ def UpdateMap(snake_map):
         for j in range(len(snake_map[i])):
             color = map_colors.get(str(snake_map[i][j]))
 
-            btn = Button(bd=0, name=f"({i}:{j})", bg=color, width=2, height=1, state=DISABLED)  # bd=0 убирает края
-            btn.grid(row=i, column=j)
+            canvas = Canvas(name=f"({i}:{j})", bg=color, width=20, height=20)
+
+            canvas.grid(row=i, column=j)
 
 
 def Snake(map_width, map_height, wall_count):
@@ -168,22 +169,22 @@ moveDirection = ''
 isMoveDirectionCanChange = isPause = isAlive = True
 
 if __name__ == '__main__':
-    WIDTH = 40
-    HEIGHT = 20
+    WIDTH = 50
+    HEIGHT = 30
 
     APPLE = 'FF0000'
-    WALL  = 'FFFFFF'
+    WALL = 'FFFFFF'
     GRASS = '00AA00'
     SNAKE = '000000'
-    TAIL  = '444444'
+    TAIL = '444444'
 
-    WALL_COUNT = 50
+    WALL_COUNT = 10
 
     global map_colors
-    map_colors = {'-2': f'#{APPLE}' ,
-                  '-1': f'#{WALL}'  ,
-                  '0' :  f'#{GRASS}',
-                  '1' :  f'#{SNAKE}',
-                  '2' :  f'#{TAIL}' }
+    map_colors = {'-2': f'#{APPLE}',
+                  '-1': f'#{WALL}',
+                  '0': f'#{GRASS}',
+                  '1': f'#{SNAKE}',
+                  '2': f'#{TAIL}'}
     Snake(WIDTH, HEIGHT, WALL_COUNT)
     isAlive = False
