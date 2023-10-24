@@ -8,11 +8,14 @@ class SnakeData:
         self.__board = np.zeros((rows_count, cols_count))
         self.__rows_count = rows_count
         self.__cols_count = cols_count
+        self.__direction = 'R'
 
-    def get_rows_count(self):
+    @property
+    def rows_count(self):
         return self.__rows_count
 
-    def get_cols_count(self):
+    @property
+    def cols_count(self):
         return self.__cols_count
 
     def get_elem(self, i, j):
@@ -237,3 +240,29 @@ class SnakeData:
         x = random.randint(0, len(matr[0]) - 7)
         for i in range(0, 7):
             matr[y][x + i] = -1
+
+    def step(self):
+        if self.__direction == 'R':
+            self.step_right()
+        if self.__direction == 'D':
+            self.step_down()
+        if self.__direction == 'L':
+            self.step_left()
+        if self.__direction == 'U':
+            self.step_up()
+
+    def turn_left(self):
+        if not self.can_not_step_left():
+            self.__direction = 'L'
+
+    def turn_up(self):
+        if not self.can_not_step_up():
+            self.__direction = 'U'
+
+    def turn_right(self):
+        if not self.can_not_step_right():
+            self.__direction = 'R'
+
+    def turn_down(self):
+        if not self.can_not_step_down():
+            self.__direction = 'D'
