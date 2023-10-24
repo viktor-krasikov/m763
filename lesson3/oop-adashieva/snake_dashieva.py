@@ -2,10 +2,15 @@ import pygame
 import time
 from tasks import SnakeData
 
-pygame.init()
-disp = pygame.display.set_mode((400, 300))
-
 snake_data = SnakeData(30, 40)
+
+cell_size = 10
+
+pygame.init()
+disp = pygame.display.set_mode(
+    (snake_data.cols_count * cell_size,
+     snake_data.rows_count * cell_size)
+)
 
 for _ in range(4):
     snake_data.create_vertical_wall()
@@ -26,16 +31,17 @@ def get_color(value):
 
 
 def draw_board():
-    pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
-    for i, row in enumerate(snake_data.board):
-        for j, elem in enumerate(row):
-            if elem != 0:
-                pygame.draw.rect(disp, get_color(elem), [j * 10, i * 10, 10, 10])
+    disp.fill((0, 0, 100))
+
+    for i in range(snake_data.rows_count):
+        for j in range(snake_data.cols_count):
+            if snake_data[(i, j)] != 0:
+                pygame.draw.rect(disp, get_color(snake_data[(i, j)]),
+                                 [j * cell_size, i * cell_size, cell_size, cell_size])
 
     pygame.display.update()
 
 
-direction = 'R'
 game_over = False
 while not game_over:
     snake_data.create_snake_if_need()
@@ -45,28 +51,20 @@ while not game_over:
         if event.type == pygame.QUIT:
             game_over = True
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT and not snake_data.can_not_step_left():
-                direction = 'L'
-            elif event.key == pygame.K_UP and not snake_data.can_not_step_up():
-                direction = 'U'
-            elif event.key == pygame.K_DOWN and not snake_data.can_not_step_down():
-                direction = 'D'
-            elif event.key == pygame.K_RIGHT and not snake_data.can_not_step_right():
-                direction = 'R'
+            if event.key == pygame.K_LEFT:
+                snake_data.turn_left()
+            elif event.key == pygame.K_UP:
+                snake_data.turn_up()
+            elif event.key == pygame.K_DOWN:
+                snake_data.turn_down()
+            elif event.key == pygame.K_RIGHT:
+                snake_data.turn_right()
             elif event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
-    if direction == 'R':
-        snake_data.step_right()
-    elif direction == 'D':
-        snake_data.step_down()
-    elif direction == 'L':
-        snake_data.step_left()
-    elif direction == 'U':
-        snake_data.step_up()
 
+    snake_data.step()
     draw_board()
     time.sleep(0.1)
 
 pygame.quit()
-quit()
