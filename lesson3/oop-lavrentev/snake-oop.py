@@ -2,28 +2,29 @@ from tasks import SnakeData
 import pygame
 import time
 
+sd = SnakeData(20, 20)
+cell_size = 20
 pygame.init()
-
-disp = pygame.display.set_mode((400, 300))
-
-sd = SnakeData(30, 40)
+disp = pygame.display.set_mode((sd.cols_count * cell_size, sd.rows_count * cell_size))
 
 
 def get_color(value):
     if value == -2:
-        return (180, 0, 0)
+        return 180, 0, 0
     elif value > 0:
-        return (200, 200, 0)
+        return 200, 200, 0
     elif value == -1:
-        return (150, 150, 150)
+        return 150, 150, 150
 
 
 def draw_board():
-    pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
-    for i, row in enumerate(sd.matr):
-        for j, elem in enumerate(row):
-            if elem != 0:
-                pygame.draw.rect(disp, get_color(elem), [j * 10, i * 10, 10, 10])
+    disp.fill((0, 0, 100))
+    for i in range(sd.rows_count):
+        for j in range(sd.cols_count):
+            if sd[(i, j)] != 0:
+                pygame.draw.rect(disp, get_color(sd[(i, j)]),
+                                 [j * cell_size, i * cell_size, cell_size, cell_size])
+
     pygame.display.update()
 
 
@@ -46,22 +47,16 @@ while not game_over:
             game_over = True
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                direction = 'L'
+                sd.turn_left()
             if event.key == pygame.K_UP:
-                direction = 'U'
+                sd.turn_up()
             if event.key == pygame.K_DOWN:
-                direction = 'D'
+                sd.turn_down()
             if event.key == pygame.K_RIGHT:
-                direction = 'R'
-    if direction == 'R':
-        sd.step_right()
-    if direction == 'D':
-        sd.step_down()
-    if direction == 'L':
-        sd.step_left()
-    if direction == 'U':
-        sd.step_up()
-
+                sd.turn_right()
+            elif event.key == pygame.K_ESCAPE:
+                pygame.quit()
+    sd.step()
     draw_board()
     time.sleep(0.2)
 pygame.quit()
