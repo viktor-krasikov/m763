@@ -1,15 +1,6 @@
 import random
 import numpy as np
 
-matr = [
-    [1, 2, 3, 5],
-    [1, 2, 3, -1],
-    [1, 20, 0, 22],
-    [10, 2, 0, 5],
-    [1, 2, 3, 5],
-]
-matr = np.zeros((5,4))
-
 
 def step_down(matr):
     print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
@@ -58,7 +49,6 @@ def create_snake_if_need(matr):
     return False
 
 
-
 def step_up(A):
     print("Имя функции: step_up; Авторы: Марбаев, Пантелеев, Хагоев")
     i1 = j1 = 0
@@ -95,7 +85,6 @@ def step_up(A):
             A[i1 - 1][j1] = max_elem + 1
 
 
-
 def can_not_step_up(A):
     print("Имя функции: can_not_step_up; Авторы: Марбаев, Пантелеев, Хагоев")
     i1 = j1 = 0
@@ -108,7 +97,6 @@ def can_not_step_up(A):
                 i1, j1 = i, j
 
     return i1 != 0 and A[i1 - 1][j1] == max_elem - 1
-
 
 
 def step_right(matr):
@@ -124,7 +112,7 @@ def step_right(matr):
         matr[i][j + 1] += 1
     elif (matr[i][j + 1]) == -2:
         matr[i][j + 1] = matr[i][j] + 1
-    #return matr.tolist()
+    # return matr.tolist()
 
 
 def step_left(matr):
@@ -159,19 +147,20 @@ def step_left(matr):
 
 def can_not_step_down(matr):
     print("can_not_step_down Mordvin Nikolaeva")
-    max=matr[0][0]
-    xmax=0
-    ymax=0
+    max = matr[0][0]
+    xmax = 0
+    ymax = 0
     for i in range(len(matr)):
-         for j in range(len(matr[i])):
-             if(max<=matr[i][j]):
-                 max=matr[i][j]
-                 xmax=i
-                 ymax=j
-    if(matr[xmax+1][ymax]==max-1):
+        for j in range(len(matr[i])):
+            if (max <= matr[i][j]):
+                max = matr[i][j]
+                xmax = i
+                ymax = j
+    if (matr[xmax + 1][ymax] == max - 1):
         return True
     else:
         return False
+
 
 def create_food_if_need(matr):
     print("create_food_if_need Dashieva")
@@ -191,9 +180,6 @@ def create_food_if_need(matr):
         matr[x[rand]][y[rand]] = -2
 
 
-print(matr)
-
-
 def can_not_step_right(matr):
     print("can_not_step_right_Lavr")
     (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
@@ -203,6 +189,7 @@ def can_not_step_right(matr):
         return True
     else:
         return False
+
 
 def can_not_step_left(A):
     print("can_not_step_left(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")

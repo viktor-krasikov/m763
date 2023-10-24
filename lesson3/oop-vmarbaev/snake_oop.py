@@ -2,7 +2,6 @@ import pygame
 import numpy as np
 import time
 import tasks
-from matplotlib import pyplot
 
 pygame.init()
 board = np.zeros((30, 40))
@@ -28,8 +27,6 @@ def draw_board():
 
     pygame.display.update()
 
-    axim.set_data(board)
-    fig.canvas.flush_events()
 
 for i in range(4):
     tasks.create_horizontal_wall(board)
@@ -37,10 +34,6 @@ for i in range(4):
 
 tasks.create_snake_if_need(board)
 tasks.create_food_if_need(board)
-
-pyplot.ion()
-fig, ax = pyplot.subplots()
-axim = pyplot.imshow(board)
 
 direction = 'R'
 game_over = False
