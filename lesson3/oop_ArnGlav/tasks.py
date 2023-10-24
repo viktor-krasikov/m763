@@ -4,10 +4,21 @@ import numpy as np
 
 class SnakeData:
     def __init__(self, row, col):
-        self.board = np.zeros((row, col))
+        self.__rows_count = row
+        self.__cols_count = col
+        self.__board = np.zeros((row, col))
+
+    def get_rows_count(self):
+        return self.__rows_count
+
+    def get_cols_count(self):
+        return self.__cols_count
+
+    def get_elem(self, i, j):
+        return self.__board[i][j]
 
     def step_down(self):
-        matr = self.board
+        matr = self.__board
         print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
         maximum = 0
         stroka = len(matr)
@@ -33,7 +44,7 @@ class SnakeData:
             matr[x + 1][y] = maximum + 1
 
     def create_snake_if_need(self):
-        matr = self.board
+        matr = self.__board
         print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
         positive = False
         stroka = len(matr)
@@ -54,7 +65,7 @@ class SnakeData:
         return False
 
     def step_up(self):
-        A = self.board
+        A = self.__board
         print("Имя функции: step_up; Авторы: Марбаев, Пантелеев, Хагоев")
         i1 = j1 = 0
         max_elem = A[i1][j1]
@@ -90,7 +101,7 @@ class SnakeData:
                 A[i1 - 1][j1] = max_elem + 1
 
     def can_not_step_up(self):
-        A = self.board
+        A = self.__board
         print("Имя функции: can_not_step_up; Авторы: Марбаев, Пантелеев, Хагоев")
         i1 = j1 = 0
         max_elem = A[i1][j1]
@@ -104,7 +115,7 @@ class SnakeData:
         return i1 != 0 and A[i1 - 1][j1] == max_elem - 1
 
     def step_right(self):
-        matr = self.board
+        matr = self.__board
         print("step_right Lavr_Buld")
         (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
         if matr[i][j] in matr[:, -1]:
@@ -120,7 +131,7 @@ class SnakeData:
         # return matr.tolist()
 
     def step_left(self):
-        matr = self.board
+        matr = self.__board
         print("step_left Dashieva")
         maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
 
@@ -150,7 +161,7 @@ class SnakeData:
             matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
     def can_not_step_down(self):
-        matr = self.board
+        matr = self.__board
         print("can_not_step_down Mordvin Nikolaeva")
         max = matr[0][0]
         xmax = 0
@@ -167,7 +178,7 @@ class SnakeData:
             return False
 
     def create_food_if_need(self):
-        matr = self.board
+        matr = self.__board
         print("create_food_if_need Dashieva")
         isMinusTwo = False
         x, y = [], []
@@ -185,7 +196,7 @@ class SnakeData:
             matr[x[rand]][y[rand]] = -2
 
     def can_not_step_right(self):
-        matr = self.board
+        matr = self.__board
         print("can_not_step_right_Lavr")
         (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
         if matr[i][j] in matr[:, -1]:
@@ -196,7 +207,7 @@ class SnakeData:
             return False
 
     def can_not_step_left(self):
-        A = self.board
+        A = self.__board
         print("can_not_step_left(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
         i1 = j1 = 0
         max_elem = A[i1][j1]
@@ -210,7 +221,7 @@ class SnakeData:
         return i1 != 0 and A[i1][j1 - 1] == max_elem - 1
 
     def create_vertical_wall(self):
-        matr = self.board
+        matr = self.__board
         print("create_vertical_wall Dashieva")
         randCol = random.randint(0, len(matr[0]) - 1)
         randRow = random.randint(0, len(matr) - 5)
@@ -219,7 +230,7 @@ class SnakeData:
             matr[randRow + k][randCol] = -1
 
     def create_horizontal_wall(self):
-        matr = self.board
+        matr = self.__board
         print("create_horizontal_wall_Lavr_Marb_Hag")
         y = random.randint(0, len(matr) - 1)
         x = random.randint(0, len(matr[0]) - 7)
