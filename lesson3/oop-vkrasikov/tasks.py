@@ -33,7 +33,6 @@ class SnakeData:
         elif x + 1 < stroka and matr[x + 1][y] == -2:
             matr[x + 1][y] = maximum + 1
 
-
     def create_snake_if_need(self):
         matr = self.board
         print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
@@ -54,8 +53,6 @@ class SnakeData:
                         matr[i][j + 2] = 3
                         return True
         return False
-
-
 
     def step_up(self):
         A = self.board
@@ -93,8 +90,6 @@ class SnakeData:
             if A[i1 - 1][j1] == -2:
                 A[i1 - 1][j1] = max_elem + 1
 
-
-
     def can_not_step_up(self):
         A = self.board
         print("Имя функции: can_not_step_up; Авторы: Марбаев, Пантелеев, Хагоев")
@@ -108,8 +103,6 @@ class SnakeData:
                     i1, j1 = i, j
 
         return i1 != 0 and A[i1 - 1][j1] == max_elem - 1
-
-
 
     def step_right(self):
         matr = self.board
@@ -125,8 +118,7 @@ class SnakeData:
             matr[i][j + 1] += 1
         elif (matr[i][j + 1]) == -2:
             matr[i][j + 1] = matr[i][j] + 1
-        #return matr.tolist()
-
+        # return matr.tolist()
 
     def step_left(self):
         matr = self.board
@@ -158,20 +150,19 @@ class SnakeData:
         elif leftElem == -2:
             matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
-
     def can_not_step_down(self):
         matr = self.board
         print("can_not_step_down Mordvin Nikolaeva")
-        max=matr[0][0]
-        xmax=0
-        ymax=0
+        max = matr[0][0]
+        xmax = 0
+        ymax = 0
         for i in range(len(matr)):
-             for j in range(len(matr[i])):
-                 if(max<=matr[i][j]):
-                     max=matr[i][j]
-                     xmax=i
-                     ymax=j
-        if(matr[xmax+1][ymax]==max-1):
+            for j in range(len(matr[i])):
+                if (max <= matr[i][j]):
+                    max = matr[i][j]
+                    xmax = i
+                    ymax = j
+        if (matr[xmax + 1][ymax] == max - 1):
             return True
         else:
             return False
@@ -193,7 +184,6 @@ class SnakeData:
         if isMinusTwo == False and len(x) > 0:
             rand = random.randint(0, len(x) - 1)
             matr[x[rand]][y[rand]] = -2
-
 
     def can_not_step_right(self):
         matr = self.board
@@ -220,7 +210,6 @@ class SnakeData:
 
         return i1 != 0 and A[i1][j1 - 1] == max_elem - 1
 
-
     def create_vertical_wall(self):
         matr = self.board
         print("create_vertical_wall Dashieva")
@@ -229,7 +218,6 @@ class SnakeData:
 
         for k in range(5):
             matr[randRow + k][randCol] = -1
-
 
     def create_horizontal_wall(self):
         matr = self.board
