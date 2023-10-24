@@ -2,8 +2,13 @@ import pygame
 import time
 from tasks import SnakeData
 
+snake_data = SnakeData(30, 40)
+cell_size = 10
 pygame.init()
-disp = pygame.display.set_mode((400, 300))
+disp = pygame.display.set_mode(
+    (snake_data.get_cols_count() * cell_size,
+     snake_data.get_rows_count() * cell_size)
+)
 
 snake_data = SnakeData(30, 40)
 
@@ -27,12 +32,13 @@ def get_color(value):
 
 def draw_board():
     pygame.draw.rect(disp, (0, 0, 100), [0, 0, 400, 300])
-    for i, row in enumerate(snake_data.board):
-        for j, elem in enumerate(row):
+    for i in range(snake_data.get_rows_count()):
+        for j in range(snake_data.get_cols_count()):
+            elem = snake_data.get_elem(i, j)
             if elem != 0:
-                pygame.draw.rect(disp, get_color(elem), [j * 10, i * 10, 10, 10])
-
+                pygame.draw.rect(disp, get_color(elem), [j * cell_size, i * cell_size, cell_size, cell_size])
     pygame.display.update()
+
 
 
 direction = 'R'
