@@ -1,15 +1,6 @@
 import random
 import numpy as np
 
-matr = [
-    [1, 2, 3, 5],
-    [1, 2, 3, -1],
-    [1, 20, 0, 22],
-    [10, 2, 0, 5],
-    [1, 2, 3, 5],
-]
-matr = np.zeros((5,4))
-
 
 def step_down(matr):
     print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
@@ -189,9 +180,6 @@ def create_food_if_need(matr):
     if isMinusTwo == False and len(x) > 0:
         rand = random.randint(0, len(x) - 1)
         matr[x[rand]][y[rand]] = -2
-
-
-print(matr)
 
 
 def can_not_step_right(matr):
