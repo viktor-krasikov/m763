@@ -62,7 +62,6 @@ while not game_over:
             elif event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
-
     snake_data.step()
     draw_board()
     time.sleep(0.1)
