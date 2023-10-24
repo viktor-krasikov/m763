@@ -21,7 +21,7 @@ class SnakeData:
     def __getitem__(self, indexes):
         return self.__board[indexes[0]][indexes[1]]
 
-    def step_down(self):
+    def __step_down(self):
         matr = self.__board
         print("step_down(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
         maximum = 0
@@ -69,7 +69,7 @@ class SnakeData:
                         return True
         return False
 
-    def step_up(self):
+    def __step_up(self):
         A = self.__board
         print("Имя функции: step_up; Авторы: Марбаев, Пантелеев, Хагоев")
         i1 = j1 = 0
@@ -105,7 +105,7 @@ class SnakeData:
             if A[i1 - 1][j1] == -2:
                 A[i1 - 1][j1] = max_elem + 1
 
-    def can_not_step_up(self):
+    def __can_not_step_up(self):
         A = self.__board
         print("Имя функции: can_not_step_up; Авторы: Марбаев, Пантелеев, Хагоев")
         i1 = j1 = 0
@@ -119,7 +119,7 @@ class SnakeData:
 
         return i1 != 0 and A[i1 - 1][j1] == max_elem - 1
 
-    def step_right(self):
+    def __step_right(self):
         matr = self.__board
         print("step_right Lavr_Buld")
         (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
@@ -135,7 +135,7 @@ class SnakeData:
             matr[i][j + 1] = matr[i][j] + 1
         # return matr.tolist()
 
-    def step_left(self):
+    def __step_left(self):
         matr = self.__board
         print("step_left Dashieva")
         maxElem, xMaxElem, yMaxElem = matr[0][0], 0, 0
@@ -165,7 +165,7 @@ class SnakeData:
         elif leftElem == -2:
             matr[xMaxElem][yMaxElem - 1] = maxElem + 1
 
-    def can_not_step_down(self):
+    def __can_not_step_down(self):
         matr = self.__board
         print("can_not_step_down Mordvin Nikolaeva")
         max = matr[0][0]
@@ -200,7 +200,7 @@ class SnakeData:
             rand = random.randint(0, len(x) - 1)
             matr[x[rand]][y[rand]] = -2
 
-    def can_not_step_right(self):
+    def __can_not_step_right(self):
         matr = self.__board
         print("can_not_step_right_Lavr")
         (i, j) = np.unravel_index(np.argmax(matr), matr.shape)
@@ -211,7 +211,7 @@ class SnakeData:
         else:
             return False
 
-    def can_not_step_left(self):
+    def __can_not_step_left(self):
         A = self.__board
         print("can_not_step_left(matr) - авторы: Гармаев Чимит, Главинская Арина, Тумэнэ Алексей")
         i1 = j1 = 0
@@ -244,26 +244,26 @@ class SnakeData:
 
     def step(self):
         if self.__direction == 'R':
-            self.step_right()
+            self.__step_right()
         elif self.__direction == 'D':
-            self.step_down()
+            self.__step_down()
         elif self.__direction == 'L':
-            self.step_left()
+            self.__step_left()
         elif self.__direction == 'U':
-            self.step_up()
+            self.__step_up()
 
     def turn_left(self):
-        if not self.can_not_step_left():
+        if not self.__can_not_step_left():
             self.__direction = 'L'
 
     def turn_up(self):
-        if not self.can_not_step_up():
+        if not self.__can_not_step_up():
             self.__direction = 'U'
 
     def turn_down(self):
-        if not self.can_not_step_down():
+        if not self.__can_not_step_down():
             self.__direction = 'D'
 
     def turn_right(self):
-        if not self.can_not_step_right():
+        if not self.__can_not_step_right():
             self.__direction = 'R'
