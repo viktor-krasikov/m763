@@ -4,7 +4,7 @@ import pygame
 
 snake_data = SnakeData(30, 40)
 
-cell_size = 15
+cell_size = 10
 pygame.init()
 disp = pygame.display.set_mode(
     (snake_data.cols_count * cell_size,
