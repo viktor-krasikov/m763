@@ -1,7 +1,8 @@
+import config
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot('6675903497:AAG4SAgbXK3SciQQUGqS2hIcSq2ofdYwXoU')
+bot = telebot.TeleBot(config.BOT_TOKEN)
 
 s = ''
 num = ''
@@ -21,15 +22,15 @@ def startBot(message):
 def pal(message):
     s = message.text.lower()
     if s[::-1] == s:
-        bot.send_message(message.chat.id, 'Да, палиндром')
+        bot.send_message(message.chat.id, 'Да, палиндром',reply_markup=markup)
     else:
-        bot.send_message(message.chat.id, 'Нет, "' + s + '" не палиндром')
+        bot.send_message(message.chat.id, 'Нет, "' + s + '" не палиндром',reply_markup=markup)
 
 
 def summa(message):
     num = message.text
     ssum = sum(map(float, num.split()))
-    bot.send_message(message.chat.id, "Сумма чисел = " + str(ssum))
+    bot.send_message(message.chat.id, "Сумма чисел = " + str(ssum),reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -39,7 +40,7 @@ def response(call):
         bot.register_next_step_handler(call.message, pal)
     elif call.data == "sum":
         bot.send_message(call.message.chat.id, 'Введи числа')
-        bot.register_next_step_handler(call.message, summa)♫
+        bot.register_next_step_handler(call.message, summa)
 
 
 # def palindrome():
@@ -51,7 +52,7 @@ def response(call):
 #         else:
 #             bot.send_message(message.chat.id, 'Нет, "' + s + '" не палиндром')
 #         return
-
+#
 # def summa_chisel():
 #     @bot.message_handler(content_types=['text'])
 #     def summa(message):
