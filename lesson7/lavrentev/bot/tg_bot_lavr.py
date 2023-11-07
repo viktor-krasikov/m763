@@ -4,9 +4,6 @@ from telebot import types
 
 bot = telebot.TeleBot(config.BOT_TOKEN)
 
-s = ''
-num = ''
-
 
 @bot.message_handler(commands=['start'])
 def startBot(message):
@@ -46,25 +43,6 @@ def response(call):
     elif call.data == "sum":
         bot.send_message(call.message.chat.id, 'Введи числа через пробел')
         bot.register_next_step_handler(call.message, summa)
-
-
-# def palindrome():
-#     @bot.message_handler(content_types=['text'])
-#     def pal(message):
-#         s = message.text.lower()
-#         if s[::-1] == s:
-#             bot.send_message(message.chat.id, 'Да, палиндром')
-#         else:
-#             bot.send_message(message.chat.id, 'Нет, "' + s + '" не палиндром')
-#         return
-#
-# def summa_chisel():
-#     @bot.message_handler(content_types=['text'])
-#     def summa(message):
-#         num = message.text
-#         ssum = sum(map(float, num.split()))
-#         bot.send_message(message.chat.id, "Сумма чисел = " + str(ssum))
-#         return
 
 
 bot.infinity_polling()
