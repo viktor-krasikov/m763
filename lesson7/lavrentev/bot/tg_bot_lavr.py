@@ -13,6 +13,7 @@ def startBot(message):
     markup = types.InlineKeyboardMarkup()
     button_pal = types.InlineKeyboardButton(text='Палиндром', callback_data='pal')
     button_sum = types.InlineKeyboardButton(text='Сумма чисел', callback_data='sum')
+    button_photo = types.InlineKeyboardButton(text='Распознать цифру', callback_data='photo')
     markup.add(button_pal, button_sum)
     bot.send_message(message.chat.id, first_mess, reply_markup=markup)
 
@@ -33,6 +34,10 @@ def summa(message):
     bot.send_message(message.chat.id, "Сумма чисел = " + str(ssum) + "\nЧто дальше?", reply_markup=markup)
 
 
+def photo(message):
+    print(message.from_user.username, ': ', message.photo)
+
+
 @bot.callback_query_handler(func=lambda call: True)
 def response(call):
     print(call.message.from_user.username, ': ', call.message.text)
@@ -43,6 +48,9 @@ def response(call):
     elif call.data == "sum":
         bot.send_message(call.message.chat.id, 'Введи числа через пробел')
         bot.register_next_step_handler(call.message, summa)
+    elif call.data == "photo":
+        bot.send_message(call.message.chat.id, 'Отправь фото')
+        bot.register_next_step_handler(call.message, photo)
 
 
 bot.infinity_polling()
