@@ -1,8 +1,13 @@
 from tasks import SnakeData
 import pygame
 import time
+from keras.models import load_model
+import numpy as np
+import autokeras
+model = load_model('snake_ns.h5',compile=False)
+model.compile() #Paste it here
 
-sd = SnakeData(20, 20)
+sd = SnakeData(10, 10)
 cell_size = 20
 pygame.init()
 disp = pygame.display.set_mode((sd.cols_count * cell_size, sd.rows_count * cell_size))
@@ -31,12 +36,35 @@ def draw_board():
 direction = 'R'
 game_over = False
 
-for _ in range(4):
-    sd.create_horizontal_wall()
-    sd.create_vertical_wall()
+# for _ in range(4):
+#     sd.create_horizontal_wall()
+#     sd.create_vertical_wall()
 
 sd.create_snake_if_need()
 sd.create_food_if_need()
+
+# while not game_over:
+#     sd.create_snake_if_need()
+#     sd.create_food_if_need()
+#     draw_board()
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             game_over = True
+#         if event.type == pygame.KEYDOWN:
+#             if event.key == pygame.K_LEFT:
+#                 sd.turn_left()
+#             elif event.key == pygame.K_UP:
+#                 sd.turn_up()
+#             elif event.key == pygame.K_DOWN:
+#                 sd.turn_down()
+#             elif event.key == pygame.K_RIGHT:
+#                 sd.turn_right()
+#             elif event.key == pygame.K_ESCAPE:
+#                 pygame.quit()
+#                 quit()
+#     sd.step()
+#     draw_board()
+#     time.sleep(0.5)
 
 while not game_over:
     sd.create_snake_if_need()
@@ -45,19 +73,19 @@ while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                sd.turn_left()
-            if event.key == pygame.K_UP:
-                sd.turn_up()
-            if event.key == pygame.K_DOWN:
-                sd.turn_down()
-            if event.key == pygame.K_RIGHT:
-                sd.turn_right()
-            elif event.key == pygame.K_ESCAPE:
-                pygame.quit()
+    pred = model.predict(sd.get_matr())
+    print(sd.get_matr())
+    print(np.argmax(pred))
+    if np.argmax(pred) == 2:
+        sd.turn_left()
+    if np.argmax(pred) == 3:
+        sd.turn_up()
+    if np.argmax(pred) == 1:
+        sd.turn_down()
+    if np.argmax(pred) == 0:
+        sd.turn_right()
     sd.step()
     draw_board()
-    time.sleep(0.2)
+    time.sleep(1)
 pygame.quit()
 quit()

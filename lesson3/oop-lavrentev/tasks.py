@@ -9,6 +9,9 @@ class SnakeData:
         self.__matr = np.zeros((rows, cols))
         self.__direction = 'R'
 
+    def get_matr(self):
+        return self.__matr
+
     @property
     def rows_count(self):
         return self.__rows
@@ -241,6 +244,7 @@ class SnakeData:
             matr[y][x + i] = -1
 
     def step(self):
+        self.save()
         if self.__direction == 'R':
             self.__step_right()
         elif self.__direction == 'D':
@@ -249,6 +253,15 @@ class SnakeData:
             self.__step_left()
         elif self.__direction == 'U':
             self.__step_up()
+
+    def save(self):
+        f = open('snake_dat.txt', 'a')
+        for i in range(self.__rows):
+            for j in range(self.__cols):
+                f.write(str(int(self.__matr[i][j])) + ' ')
+            f.write('\n')
+        f.write(self.__direction + '\n')
+        f.close()
 
     def turn_left(self):
         if not self.__can_not_step_left():
